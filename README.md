@@ -35,11 +35,11 @@ de autenticação, controle de acesso e criptografia TLS**.
 1.  **Bloqueio de acesso anônimo**
     -   Configurado `allow_anonymous false` no `mosquitto.conf`.
 2.  **Criação de usuário e senha**
-    -   Foi criado o usuário `victordetona` no arquivo `passwordfile`,
-        com senha armazenada em hash.
+    -   Foi criado o usuário `USUARIO` no arquivo `passwordfile`, com
+        senha armazenada em hash.
 3.  **Configuração de ACL (Access Control List)**
     -   Criado o arquivo `mosquitto.acl`, permitindo que apenas o
-        usuário `victordetona` publique mensagens.
+        usuário `USUARIO` publique mensagens.
 4.  **Implementação de TLS**
     -   Foram gerados certificados e chave de criptografia (`.crt` e
         `.key`), configurados no `mosquitto.conf` para habilitar
@@ -86,12 +86,12 @@ de autenticação, controle de acesso e criptografia TLS**.
 3.  **Criar usuário no broker**
 
     ``` bash
-    mosquitto_passwd -c mosquitto/config/passwordfile victordetona
+    mosquitto_passwd -c mosquitto/config/passwordfile USUARIO
     ```
 
 4.  **Definir ACL** (mosquitto/config/mosquitto.acl)
 
-        user victordetona
+        user USUARIO
         topic readwrite sensor/#
 
 5.  **Subir o broker com Docker Compose**
@@ -113,7 +113,7 @@ de autenticação, controle de acesso e criptografia TLS**.
 -   **Assinar tópico (com TLS, porta 8883):**
 
     ``` bash
-    mosquitto_sub -h localhost -p 8883 --cafile ./mosquitto/certs/ca.crt   -t 'sensor/#' -v --tls-version tlsv1.2 -u victordetona -P <SENHA>
+    mosquitto_sub -h localhost -p 8883 --cafile ./mosquitto/certs/ca.crt   -t 'sensor/#' -v --tls-version tlsv1.2 -u USUARIO -P <SENHA>
     ```
 
 ------------------------------------------------------------------------
@@ -121,7 +121,7 @@ de autenticação, controle de acesso e criptografia TLS**.
 ## Resumo Técnico
 
 -   O acesso anônimo foi desabilitado.\
--   Usuário `victordetona` criado com autenticação por senha.\
+-   Usuário `USUARIO` criado com autenticação por senha.\
 -   ACL implementada para restringir permissões.\
 -   TLS habilitado para proteger a comunicação externa.\
 -   Segregação de portas configurada (1883 → interno / 8883 → externo).
