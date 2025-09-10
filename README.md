@@ -10,7 +10,7 @@ de autenticação, controle de acesso e criptografia TLS**.
 
 -   **mosquitto/config/mosquitto.conf** → Arquivo principal de
     configuração do broker.\
--   **mosquitto/config/passwordfile** → Arquivo contendo usuários e
+-   **mosquitto/config/mosquitto.passwd** → Arquivo contendo usuários e
     senhas (hash) para autenticação.\
 -   **mosquitto/config/mosquitto.acl** → Lista de controle de acesso
     (ACL) que define permissões de publicação/assinatura.\
@@ -35,7 +35,7 @@ de autenticação, controle de acesso e criptografia TLS**.
 1.  **Bloqueio de acesso anônimo**
     -   Configurado `allow_anonymous false` no `mosquitto.conf`.
 2.  **Criação de usuário e senha**
-    -   Foi criado o usuário `USUARIO` no arquivo `passwordfile`, com
+    -   Foi criado o usuário `USUARIO` no arquivo `mosquitto.passwd`, com
         senha armazenada em hash.
 3.  **Configuração de ACL (Access Control List)**
     -   Criado o arquivo `mosquitto.acl`, permitindo que apenas o
