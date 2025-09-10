@@ -129,3 +129,12 @@ de autenticação, controle de acesso e criptografia TLS**.
 Este projeto demonstra como corrigir falhas comuns de segurança em
 brokers MQTT, garantindo **autenticação, criptografia e controle de
 acesso** de forma prática e funcional.
+
+------------------------------------------------------------------------
+
+## Observação
+
+Durante a implementação prática do laboratório, o usuário criado no
+broker foi chamado **"victordetona"**.\
+No entanto, neste README ele foi renomeado para **"USUARIO"** apenas
+para fins de **clareza e entendimento do público**.
